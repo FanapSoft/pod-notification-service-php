@@ -1,0 +1,24 @@
+{
+  "name": "pod-sdk/pod-notification-service",
+  "version": "1.0.0",
+  "type": "library",
+  "keywords": ["sdk", "pod sdk", "pod sdk notification service"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Elham Keshtgar",
+      "email": "podsdk@fanap.ir"
+    }
+  ],
+  "description": "POD SDK Notification Service",
+
+  "require": {
+    "ext-openssl": "*",
+    "pod-sdk/pod-base-service" : "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pod\\Notification\\Service\\" : "src/"
+    }
+  }
+}
