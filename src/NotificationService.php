@@ -14,6 +14,7 @@ use Pod\Base\Service\ApiRequestHandler;
 class NotificationService extends BaseService
 {
     private $header;
+    private static $jsonSchema;
     private static $notificationApi;
     private static $baseUri;
     private static $serviceProductId;
@@ -153,6 +154,11 @@ class NotificationService extends BaseService
             $paramKey => $params,
         ];
         self::validateOption($option, self::$jsonSchema[$apiName], $paramKey);
+
+        if ($option[$paramKey]['content']['token1']) {
+            $option[$paramKey]['content']['token'] = $option[$paramKey]['content']['token1'];
+            unset($option[$paramKey]['content']['token1']);
+        }
 
         $preparedJsonBody['content'] = $option[$paramKey]['content'];
         $option[$paramKey]['body'] = json_encode($preparedJsonBody);

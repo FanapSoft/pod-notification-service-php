@@ -158,30 +158,41 @@
         "form_params": {
             "type": "object",
             "properties": {
-                "receptor": {
-                    "type": "string",
-                    "pattern" : "^(0|\\+98|0098){1}[9]{1}[\\d]{9}$",
-                    "description": "شماره تلفن دریافت کننده"
-                },
-                "token" : {
-                   "type": "string",
-                    "description": "این رشته فقط میتواند حاوی کاراکتر های انگلیسی و عدد باشد."
-                },
-                "token2" : {
-                   "type": "string",
-                    "description": "این رشته فقط میتواند حاوی کاراکتر های انگلیسی و عدد باشد."
-                },
-                "token3" : {
-                   "type": "string",
-                    "description": "این رشته فقط میتواند حاوی کاراکتر های انگلیسی و عدد باشد."
-                },
-                "template" : {
-                    "type": "string",
-                    "description": "نام الگوی تعریف شده برای اعتبار سنجی"
-                },
-                "type" : {
-                    "type": "string",
-                    "description": "نوع پیام را مشخص میکند (پیامک صوتی یا متنی) پیش فرض پیامک (sms) می باشد."
+                "content":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "receptor": {
+                            "type": "string",
+                            "pattern" : "^(0|\\+98|0098){1}[9]{1}[\\d]{9}$",
+                            "description": "شماره تلفن دریافت کننده"
+                        },
+                        "token1" : {
+                            "type": "string",
+                            "description": "این رشته فقط میتواند حاوی کاراکتر های انگلیسی و عدد باشد."
+                        },
+                        "token2" : {
+                            "type": "string",
+                            "description": "این رشته فقط میتواند حاوی کاراکتر های انگلیسی و عدد باشد."
+                        },
+                        "token3" : {
+                            "type": "string",
+                            "description": "این رشته فقط میتواند حاوی کاراکتر های انگلیسی و عدد باشد."
+                        },
+                        "template" : {
+                            "type": "string",
+                            "description": "نام الگوی تعریف شده برای اعتبار سنجی"
+                        },
+                        "type" : {
+                            "type": "string",
+                            "description": "نوع پیام را مشخص میکند (پیامک صوتی یا متنی) پیش فرض پیامک (sms) می باشد."
+                        }
+                    },
+                    "required": ["receptor", "token1", "template"],
+                    "additionalItems": false,
+                    "title": "محتویات پیام",
+                    "description": "اطلاعات مورد نیاز برای ارسال پیام"
                 },
                 "scVoucherHash": {
                     "type": "array",
@@ -196,7 +207,7 @@
                     "title": "توکن برای فراخوانی سرویس کال"
                 }
             },
-            "required": ["receptor", "token", "template", "scApiKey"],
+            "required": ["content", "scApiKey"],
             "additionalProperties": false
         }
     },

@@ -1,6 +1,6 @@
 {
   "name": "pod-sdk/pod-notification-service",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "library",
   "keywords": ["sdk", "pod sdk", "pod sdk notification service"],
   "license": "MIT",
